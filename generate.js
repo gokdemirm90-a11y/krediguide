@@ -188,3 +188,25 @@ footer a{color:var(--muted);text-decoration:none;margin:0 12px;}
 }
 
 main().catch(console.error);
+
+
+// Sitemap güncelle
+function updateSitemap() {
+  const files = fs.readdirSync('.').filter(f => f.endsWith('.html') && !f.startsWith('google'));
+  const date = new Date().toISOString().split('T')[0];
+  
+  const urls = files.map(f => {
+    const priority = f === 'index.html' ? '1.0' : f.startsWith('article-') ? '0.8' : '0.7';
+    return `  <url><loc>https://krediguide.com/${f}</loc><priority>${priority}</priority><lastmod>${date}</lastmod><changefreq>daily</changefreq></url>`;
+  }).join('\n');
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
+</urlset>`;
+
+  fs.writeFileSync('sitemap.xml', sitemap);
+  console.log('Sitemap updated with', files.length, 'pages');
+}
+
+updateSitemap();
