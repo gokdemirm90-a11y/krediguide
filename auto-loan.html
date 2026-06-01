@@ -1,34 +1,241 @@
-name: Daily Content Generator
-
-on:
-  schedule:
-    - cron: '0 9 * * *'
-  workflow_dispatch:
-
-jobs:
-  generate-content:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Generate daily article
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node generate.js
-
-      - name: Commit and push
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "KrediGuide Bot"
-          git add -A
-          git diff --staged --quiet || git commit -m "Daily article: $(date '+%Y-%m-%d')"
-          git push
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free auto loan calculator 2026. Car payment estimator, compare terms and lenders.">
+<title>Auto Loan Calculator 2026 — KrediGuide.com</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3203893028519911" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0f1e;--bg2:#0f1628;--card:#141d35;--card2:#1a2540;--border:rgba(255,255,255,0.07);--accent:#a78bfa;--accent2:#4f8cff;--accent3:#34d399;--text:#f0f4ff;--muted:#7a88a8;--radius:16px;--radius-sm:10px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 50% at 30% 20%,rgba(167,139,250,0.12) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 70% 70%,rgba(79,140,255,0.10) 0%,transparent 55%);pointer-events:none;z-index:0;}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,15,30,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px;}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);display:inline-block;}
+.nav-links{display:flex;gap:1.4rem;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;transition:color .2s;white-space:nowrap;}
+.nav-links a:hover,.nav-links a.active{color:var(--text);}
+.nav-cta{background:var(--accent);color:#fff;padding:8px 18px;border-radius:8px;font-size:0.83rem;font-weight:500;text-decoration:none;white-space:nowrap;flex-shrink:0;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;flex-shrink:0;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s;}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(10,15,30,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:20px 5%;z-index:99;flex-direction:column;gap:4px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:var(--muted);text-decoration:none;font-size:1rem;padding:12px 0;border-bottom:1px solid var(--border);}
+.mobile-menu a:last-child{border-bottom:none;color:var(--accent);font-weight:500;}
+.page-header{position:relative;z-index:1;padding:60px 5% 40px;}
+.breadcrumb{font-size:0.78rem;color:var(--muted);margin-bottom:16px;}
+.breadcrumb a{color:var(--muted);text-decoration:none;}
+.page-header h1{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:12px;}
+.page-header p{color:var(--muted);max-width:520px;line-height:1.7;}
+.main{position:relative;z-index:1;padding:0 5% 80px;display:grid;grid-template-columns:1fr 340px;gap:32px;align-items:start;}
+.calc-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:24px;}
+.calc-card h2{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:22px;}
+.car-types{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px;}
+.car-type{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:14px 10px;text-align:center;cursor:pointer;transition:all .2s;}
+.car-type.active{border-color:var(--accent);background:rgba(167,139,250,0.1);}
+.car-type-icon{font-size:1.5rem;margin-bottom:5px;}
+.car-type-name{font-size:0.78rem;color:var(--muted);font-weight:500;}
+.car-type.active .car-type-name{color:var(--accent);}
+.input-group{margin-bottom:18px;}
+.input-group label{display:flex;justify-content:space-between;font-size:0.82rem;color:var(--muted);margin-bottom:8px;}
+.input-group label span{font-weight:500;color:var(--text);font-family:'Syne',sans-serif;}
+.input-row{display:flex;gap:10px;align-items:center;}
+input[type=range]{flex:1;-webkit-appearance:none;height:4px;border-radius:2px;background:var(--card2);outline:none;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--accent);cursor:pointer;}
+.num-input{width:120px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px 11px;font-family:'DM Sans',sans-serif;font-size:0.88rem;outline:none;transition:border-color .2s;}
+.num-input:focus{border-color:var(--accent);}
+.calc-btn-main{width:100%;margin-top:4px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:10px;padding:13px;font-size:0.95rem;font-weight:600;cursor:pointer;font-family:'Syne',sans-serif;transition:opacity .2s;}
+.calc-btn-main:hover{opacity:.9;}
+.results-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:24px;}
+.results-card h2{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:20px;}
+.result-hero{background:linear-gradient(135deg,rgba(167,139,250,0.1),rgba(79,140,255,0.1));border:1px solid rgba(167,139,250,0.2);border-radius:12px;padding:22px;text-align:center;margin-bottom:18px;}
+.result-hero-label{font-size:0.8rem;color:var(--muted);margin-bottom:5px;}
+.result-hero-value{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--accent);}
+.result-hero-sub{font-size:0.76rem;color:var(--muted);margin-top:3px;}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.result-item{background:var(--card2);border-radius:10px;padding:14px;}
+.result-item-label{font-size:0.75rem;color:var(--muted);margin-bottom:4px;}
+.result-item-value{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;}
+.val-red{color:#f87171;}.val-green{color:var(--accent3);}
+.vade-wrap{margin-top:20px;}
+.vade-title{font-size:0.82rem;color:var(--muted);margin-bottom:10px;}
+.vade-row{display:flex;align-items:center;gap:10px;padding:6px 0;}
+.vade-label{font-size:0.8rem;color:var(--muted);min-width:55px;}
+.vade-bar-bg{flex:1;height:6px;border-radius:3px;background:var(--card2);overflow:hidden;}
+.vade-bar-fill{height:100%;border-radius:3px;background:var(--accent);}
+.vade-value{font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:600;min-width:75px;text-align:right;}
+.sidebar{display:flex;flex-direction:column;gap:18px;}
+.sidebar-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;}
+.sidebar-card h3{font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:700;margin-bottom:14px;}
+.bank-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--border);}
+.bank-row:last-child{border-bottom:none;}
+.bank-name{font-size:0.85rem;font-weight:500;}
+.bank-rate{font-family:'Syne',sans-serif;font-size:0.95rem;font-weight:700;color:var(--accent);}
+.bank-type{font-size:0.68rem;color:var(--muted);}
+.tip-item{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);}
+.tip-item:last-child{border-bottom:none;}
+.tip-icon{font-size:0.95rem;flex-shrink:0;margin-top:2px;}
+.tip-text{font-size:0.8rem;color:var(--muted);line-height:1.5;}
+.tip-text strong{color:var(--text);}
+.ad-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;min-height:250px;display:flex;align-items:center;justify-content:center;position:relative;}
+.ad-label-sm{position:absolute;top:8px;left:12px;font-size:0.65rem;color:rgba(255,255,255,0.2);}
+footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32px 5%;text-align:center;}
+footer p{font-size:0.78rem;color:var(--muted);}
+footer a{color:var(--muted);text-decoration:none;margin:0 10px;}
+@media(max-width:900px){.main{grid-template-columns:1fr;}.nav-links{display:none;}.hamburger{display:flex;}}
+@media(max-width:480px){.car-types{grid-template-columns:repeat(3,1fr);}.result-grid{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo"><span class="logo-dot"></span>KrediGuide<span style="color:var(--accent2)">.com</span></a>
+  <ul class="nav-links">
+    <li><a href="mortgage.html">Mortgage</a></li>
+    <li><a href="auto-loan.html" class="active">Auto Loan</a></li>
+    <li><a href="legal-guide.html">Legal Guides</a></li>
+    <li><a href="insurance-guide.html">Insurance</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <a href="legal-guide.html" class="nav-cta">Legal Guides</a>
+  <div class="hamburger" onclick="toggleMenu()" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="mortgage.html" onclick="closeMenu()">🏠 Mortgage Calculator</a>
+  <a href="auto-loan.html" onclick="closeMenu()">🚗 Auto Loan Calculator</a>
+  <a href="legal-guide.html" onclick="closeMenu()">⚖️ Legal Guides</a>
+  <a href="insurance-guide.html" onclick="closeMenu()">🛡️ Insurance Guide</a>
+  <a href="blog.html" onclick="closeMenu()">📚 Blog</a>
+  <a href="legal-guide.html" onclick="closeMenu()">→ Legal Guides</a>
+</div>
+<div class="page-header">
+  <div class="breadcrumb"><a href="index.html">Home</a> / Auto Loan Calculator</div>
+  <h1>🚗 Auto Loan Calculator 2026</h1>
+  <p>Estimate your monthly car payment, compare loan terms, and find the best rate.</p>
+</div>
+<div class="main">
+  <div>
+    <div class="calc-card">
+      <h2>Enter Vehicle Details</h2>
+      <div class="car-types">
+        <div class="car-type active" onclick="selectCar(this,'Sedan',5.99)"><div class="car-type-icon">🚗</div><div class="car-type-name">Sedan / SUV</div></div>
+        <div class="car-type" onclick="selectCar(this,'Truck',6.49)"><div class="car-type-icon">🛻</div><div class="car-type-name">Truck</div></div>
+        <div class="car-type" onclick="selectCar(this,'EV',4.99)"><div class="car-type-icon">⚡</div><div class="car-type-name">Electric</div></div>
+      </div>
+      <div class="input-group">
+        <label>Vehicle Price <span id="priceLabel">$35,000</span></label>
+        <div class="input-row">
+          <input type="range" id="priceSlider" min="5000" max="150000" step="1000" value="35000" oninput="syncPrice(this.value)">
+          <input type="text" class="num-input" id="priceInput" value="35,000" oninput="syncPriceInput(this.value)">
+        </div>
+      </div>
+      <div class="input-group">
+        <label>Down Payment <span id="downLabel">$7,000 (20%)</span></label>
+        <div class="input-row">
+          <input type="range" id="downSlider" min="0" max="60" step="5" value="20" oninput="syncDown(this.value)">
+          <input type="number" class="num-input" id="downInput" value="20" min="0" max="80" oninput="syncDownInput(this.value)"><span style="color:var(--muted);font-size:0.85rem;margin-left:-6px">%</span>
+        </div>
+      </div>
+      <div class="input-group">
+        <label>Loan Term <span id="termLabel">60 months</span></label>
+        <div class="input-row">
+          <input type="range" id="termSlider" min="12" max="84" step="12" value="60" oninput="syncTerm(this.value)">
+          <input type="number" class="num-input" id="termInput" value="60" min="12" max="84" oninput="syncTermInput(this.value)"><span style="color:var(--muted);font-size:0.85rem;margin-left:-6px">mo</span>
+        </div>
+      </div>
+      <div class="input-group">
+        <label>Annual Interest Rate <span id="rateLabel">5.99%</span></label>
+        <div class="input-row">
+          <input type="range" id="rateSlider" min="1" max="20" step="0.1" value="5.99" oninput="syncRate(this.value)">
+          <input type="number" class="num-input" id="rateInput" value="5.99" step="0.1" oninput="syncRateInput(this.value)"><span style="color:var(--muted);font-size:0.85rem;margin-left:-6px">%</span>
+        </div>
+      </div>
+      <button class="calc-btn-main" onclick="calculate()">Calculate →</button>
+    </div>
+    <div class="results-card">
+      <h2>Your Results</h2>
+      <div class="result-hero">
+        <div class="result-hero-label">Monthly Payment</div>
+        <div class="result-hero-value" id="monthlyPmt">$0</div>
+        <div class="result-hero-sub" id="termSub">over — months</div>
+      </div>
+      <div class="result-grid">
+        <div class="result-item"><div class="result-item-label">Loan Amount</div><div class="result-item-value val-green" id="loanAmt">$0</div></div>
+        <div class="result-item"><div class="result-item-label">Down Payment</div><div class="result-item-value" id="downAmt">$0</div></div>
+        <div class="result-item"><div class="result-item-label">Total Interest</div><div class="result-item-value val-red" id="totalInt">$0</div></div>
+        <div class="result-item"><div class="result-item-label">Total Cost</div><div class="result-item-value" id="totalCost">$0</div></div>
+      </div>
+      <div class="vade-wrap">
+        <div class="vade-title">Compare loan terms</div>
+        <div id="vadeComp"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sidebar">
+    <div class="sidebar-card">
+      <h3>🏦 Current Auto Loan Rates</h3>
+      <div class="bank-row"><div><div class="bank-name">Chase Auto</div><div class="bank-type">New car, 60 mo</div></div><div class="bank-rate">5.74%</div></div>
+      <div class="bank-row"><div><div class="bank-name">Bank of America</div><div class="bank-type">New car, 60 mo</div></div><div class="bank-rate">5.89%</div></div>
+      <div class="bank-row"><div><div class="bank-name">Wells Fargo</div><div class="bank-type">New car, 60 mo</div></div><div class="bank-rate">5.99%</div></div>
+      <div class="bank-row"><div><div class="bank-name">Capital One</div><div class="bank-type">New car, 60 mo</div></div><div class="bank-rate">6.24%</div></div>
+      <div class="bank-row"><div><div class="bank-name">Credit Union</div><div class="bank-type">New car, 60 mo</div></div><div class="bank-rate">4.99%</div></div>
+      <div style="margin-top:10px;font-size:0.72rem;color:var(--muted);">Rates approximate. Verify with lenders.</div>
+    </div>
+    <div class="ad-box"><span class="ad-label-sm">AD</span><div style="color:var(--muted);font-size:0.82rem;">Advertisement — 300×250</div></div>
+    <div class="sidebar-card">
+      <h3>💡 Auto Loan Tips</h3>
+      <div class="tip-item"><span class="tip-icon">🏦</span><div class="tip-text"><strong>Credit unions</strong> often offer the lowest auto loan rates.</div></div>
+      <div class="tip-item"><span class="tip-icon">📊</span><div class="tip-text"><strong>Get pre-approved</strong> before visiting the dealership.</div></div>
+      <div class="tip-item"><span class="tip-icon">⚡</span><div class="tip-text"><strong>EV incentives:</strong> Federal tax credits up to $7,500 may apply.</div></div>
+      <div class="tip-item"><span class="tip-icon">📅</span><div class="tip-text"><strong>Shorter terms</strong> mean less total interest paid.</div></div>
+    </div>
+    <div class="ad-box"><span class="ad-label-sm">AD</span><div style="color:var(--muted);font-size:0.82rem;">Advertisement — 300×250</div></div>
+  </div>
+</div>
+<footer>
+  <p><a href="index.html">Home</a><a href="about.html">About</a><a href="privacy-policy.html">Privacy</a><a href="contact.html">Contact</a></p>
+  <p style="margin-top:10px;">© 2026 KrediGuide.com</p>
+</footer>
+<script>
+function fmtUSD(n){return'$'+Math.round(n).toLocaleString('en-US');}
+function getPrice(){return parseInt((document.getElementById('priceInput').value||'').replace(/,/g,''))||35000;}
+function calcPmt(P,n,r){return r===0?P/n:P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);}
+function syncPrice(v){document.getElementById('priceLabel').textContent='$'+parseInt(v).toLocaleString('en-US');document.getElementById('priceInput').value=parseInt(v).toLocaleString('en-US');updateDown();calculate();}
+function syncPriceInput(v){const r=parseInt(v.replace(/,/g,'')||0);document.getElementById('priceSlider').value=r;document.getElementById('priceLabel').textContent='$'+r.toLocaleString('en-US');updateDown();calculate();}
+function syncDown(v){document.getElementById('downInput').value=v;updateDown();calculate();}
+function syncDownInput(v){document.getElementById('downSlider').value=v;updateDown();calculate();}
+function updateDown(){const p=getPrice();const d=parseInt(document.getElementById('downInput').value)||20;document.getElementById('downLabel').textContent='$'+(p*d/100).toLocaleString('en-US')+' ('+d+'%)';}
+function syncTerm(v){document.getElementById('termLabel').textContent=v+' months';document.getElementById('termInput').value=v;calculate();}
+function syncTermInput(v){document.getElementById('termSlider').value=v;document.getElementById('termLabel').textContent=v+' months';calculate();}
+function syncRate(v){const r=parseFloat(v).toFixed(2);document.getElementById('rateLabel').textContent=r+'%';document.getElementById('rateInput').value=r;calculate();}
+function syncRateInput(v){document.getElementById('rateSlider').value=v;document.getElementById('rateLabel').textContent=parseFloat(v).toFixed(2)+'%';calculate();}
+function selectCar(el,name,rate){document.querySelectorAll('.car-type').forEach(e=>e.classList.remove('active'));el.classList.add('active');document.getElementById('rateInput').value=rate;document.getElementById('rateSlider').value=rate;document.getElementById('rateLabel').textContent=rate+'%';calculate();}
+function calculate(){
+  const price=getPrice();const dp=parseInt(document.getElementById('downInput').value)||20;
+  const P=price*(1-dp/100);const n=parseInt(document.getElementById('termInput').value)||60;
+  const r=parseFloat(document.getElementById('rateInput').value)/100/12;
+  const pmt=calcPmt(P,n,r);const total=pmt*n;const interest=total-P;
+  document.getElementById('monthlyPmt').textContent=fmtUSD(pmt);
+  document.getElementById('termSub').textContent='over '+n+' months';
+  document.getElementById('loanAmt').textContent=fmtUSD(P);
+  document.getElementById('downAmt').textContent=fmtUSD(price*dp/100);
+  document.getElementById('totalInt').textContent=fmtUSD(interest);
+  document.getElementById('totalCost').textContent=fmtUSD(total+price*dp/100);
+  const terms=[24,36,48,60,72,84];
+  const maxPmt=calcPmt(P,24,r);
+  document.getElementById('vadeComp').innerHTML=terms.map(t=>{
+    const p=calcPmt(P,t,r);const w=Math.round(p/maxPmt*100);
+    return'<div class="vade-row"><div class="vade-label">'+t+' mo</div><div class="vade-bar-bg"><div class="vade-bar-fill" style="width:'+w+'%"></div></div><div class="vade-value">'+fmtUSD(p)+'/mo</div></div>';
+  }).join('');
+}
+function toggleMenu(){const m=document.getElementById('mobileMenu');m.classList.toggle('open');const s=document.getElementById('hamburger').querySelectorAll('span');if(m.classList.contains('open')){s[0].style.transform='rotate(45deg) translate(5px,5px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(5px,-5px)';}else{s[0].style.transform='';s[1].style.opacity='';s[2].style.transform='';}}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');const s=document.getElementById('hamburger').querySelectorAll('span');s[0].style.transform='';s[1].style.opacity='';s[2].style.transform='';}
+calculate();
+</script>
+</body>
+</html>
