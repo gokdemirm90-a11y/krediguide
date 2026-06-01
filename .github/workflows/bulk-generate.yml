@@ -1,0 +1,33 @@
+name: Bulk Article Generator
+
+on:
+  workflow_dispatch:
+
+jobs:
+  bulk-generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate all articles
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node generate-bulk.js
+
+      - name: Commit and push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "KrediGuide Bot"
+          git add -A
+          git diff --staged --quiet || git commit -m "Bulk articles: $(date '+%Y-%m-%d')"
+          git push
