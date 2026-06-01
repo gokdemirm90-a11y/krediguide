@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free financial & legal guides. Mortgage calculator, loan tools, legal advice guides — instant results, no signup.">
+<title>FinGuide.net — Smart Financial & Legal Tools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0f1e;--bg2:#0f1628;--card:#141d35;--card2:#1a2540;--border:rgba(255,255,255,0.07);--accent:#4f8cff;--accent2:#a78bfa;--accent3:#34d399;--text:#f0f4ff;--muted:#7a88a8;--radius:16px;--radius-sm:10px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 20% 10%,rgba(79,140,255,0.12) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(167,139,250,0.10) 0%,transparent 55%);pointer-events:none;z-index:0;}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,15,30,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px;}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;flex-shrink:0;}
+.nav-links{display:flex;gap:1.4rem;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;transition:color .2s;white-space:nowrap;}
+.nav-links a:hover,.nav-links a.active{color:var(--text);}
+.nav-cta{background:var(--accent);color:#fff;padding:8px 18px;border-radius:8px;font-size:0.83rem;font-weight:500;text-decoration:none;white-space:nowrap;flex-shrink:0;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;flex-shrink:0;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s;}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(10,15,30,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:20px 5%;z-index:99;flex-direction:column;gap:4px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:var(--muted);text-decoration:none;font-size:1rem;padding:12px 0;border-bottom:1px solid var(--border);transition:color .2s;}
+.mobile-menu a:last-child{border-bottom:none;color:var(--accent);font-weight:500;}
+.mobile-menu a:hover{color:var(--text);}
+.hero{position:relative;z-index:1;padding:70px 5% 60px;text-align:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(79,140,255,0.12);border:1px solid rgba(79,140,255,0.25);border-radius:999px;padding:6px 16px;font-size:0.78rem;color:var(--accent);margin-bottom:24px;}
+.hero-badge span{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;flex-shrink:0;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,6vw,4rem);font-weight:800;line-height:1.1;margin-bottom:18px;background:linear-gradient(135deg,#f0f4ff 0%,#a78bfa 50%,#4f8cff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero p{font-size:clamp(0.95rem,2.5vw,1.1rem);color:var(--muted);max-width:540px;margin:0 auto 36px;line-height:1.7;}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-primary{background:var(--accent);color:#fff;padding:14px 28px;border-radius:10px;font-size:0.95rem;font-weight:500;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 0 30px rgba(79,140,255,0.3);white-space:nowrap;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(79,140,255,0.45);}
+.btn-secondary{background:var(--card2);color:var(--text);padding:14px 28px;border-radius:10px;font-size:0.95rem;font-weight:500;text-decoration:none;border:1px solid var(--border);transition:border-color .2s;white-space:nowrap;}
+.btn-secondary:hover{border-color:rgba(255,255,255,0.2);}
+.stats{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin:0 5% 60px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.stat{background:var(--card);padding:24px 16px;text-align:center;}
+.stat-num{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--text);margin-bottom:4px;}
+.stat-label{font-size:0.75rem;color:var(--muted);}
+.ad-banner{margin:0 5% 50px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;min-height:90px;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;}
+.ad-label{position:absolute;top:8px;left:12px;font-size:0.65rem;color:rgba(255,255,255,0.2);letter-spacing:.05em;}
+.section{position:relative;z-index:1;padding:0 5% 60px;}
+.section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;gap:12px;flex-wrap:wrap;}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(1.3rem,3vw,1.8rem);font-weight:700;}
+.section-title span{color:var(--accent);}
+.section-link{color:var(--muted);font-size:0.85rem;text-decoration:none;white-space:nowrap;}
+.section-link:hover{color:var(--accent);}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
+.tool-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-decoration:none;display:flex;flex-direction:column;gap:14px;transition:transform .25s,border-color .25s,box-shadow .25s;position:relative;overflow:hidden;}
+.tool-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s;}
+.tool-card.blue::before{background:linear-gradient(135deg,rgba(79,140,255,0.06) 0%,transparent 60%);}
+.tool-card.purple::before{background:linear-gradient(135deg,rgba(167,139,250,0.06) 0%,transparent 60%);}
+.tool-card.green::before{background:linear-gradient(135deg,rgba(52,211,153,0.06) 0%,transparent 60%);}
+.tool-card.orange::before{background:linear-gradient(135deg,rgba(251,146,60,0.06) 0%,transparent 60%);}
+.tool-card.red::before{background:linear-gradient(135deg,rgba(248,113,113,0.06) 0%,transparent 60%);}
+.tool-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.3);}
+.tool-card.blue:hover{border-color:rgba(79,140,255,0.3);}
+.tool-card.purple:hover{border-color:rgba(167,139,250,0.3);}
+.tool-card.green:hover{border-color:rgba(52,211,153,0.3);}
+.tool-card.orange:hover{border-color:rgba(251,146,60,0.3);}
+.tool-card.red:hover{border-color:rgba(248,113,113,0.3);}
+.tool-card:hover::before{opacity:1;}
+.tool-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.i-blue{background:rgba(79,140,255,0.15);}
+.i-purple{background:rgba(167,139,250,0.15);}
+.i-green{background:rgba(52,211,153,0.15);}
+.i-orange{background:rgba(251,146,60,0.15);}
+.i-red{background:rgba(248,113,113,0.15);}
+.tool-name{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text);}
+.tool-desc{font-size:0.83rem;color:var(--muted);line-height:1.6;}
+.tool-tag{display:inline-block;font-size:0.7rem;padding:3px 10px;border-radius:999px;font-weight:500;}
+.t-blue{background:rgba(79,140,255,0.12);color:var(--accent);}
+.t-green{background:rgba(52,211,153,0.12);color:var(--accent3);}
+.t-purple{background:rgba(167,139,250,0.12);color:var(--accent2);}
+.t-orange{background:rgba(251,146,60,0.12);color:#fb923c;}
+.t-red{background:rgba(248,113,113,0.12);color:#f87171;}
+.tool-arrow{margin-top:auto;color:var(--muted);font-size:1rem;transition:transform .2s,color .2s;}
+.tool-card:hover .tool-arrow{transform:translateX(4px);}
+.tool-card.blue:hover .tool-arrow{color:var(--accent);}
+.tool-card.purple:hover .tool-arrow{color:var(--accent2);}
+.tool-card.green:hover .tool-arrow{color:var(--accent3);}
+.tool-card.orange:hover .tool-arrow{color:#fb923c;}
+.tool-card.red:hover .tool-arrow{color:#f87171;}
+.featured-tool{background:linear-gradient(135deg,rgba(248,113,113,0.07) 0%,rgba(167,139,250,0.07) 100%);border:1px solid rgba(248,113,113,0.2);border-radius:var(--radius);padding:32px;margin-bottom:40px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;}
+.featured-label{font-size:0.7rem;letter-spacing:.12em;color:#f87171;text-transform:uppercase;font-weight:600;margin-bottom:10px;}
+.featured-title{font-family:'Syne',sans-serif;font-size:clamp(1.3rem,3vw,1.9rem);font-weight:800;line-height:1.2;margin-bottom:10px;}
+.featured-desc{color:var(--muted);line-height:1.7;margin-bottom:20px;font-size:0.9rem;}
+.btn-red{background:#f87171;color:#fff;padding:13px 26px;border-radius:10px;font-size:0.95rem;font-weight:500;text-decoration:none;transition:opacity .2s;display:inline-block;}
+.btn-red:hover{opacity:.85;}
+.quick-calc{background:var(--card2);border-radius:var(--radius-sm);padding:22px;}
+.quick-calc label{display:block;font-size:0.8rem;color:var(--muted);margin-bottom:6px;}
+.quick-calc input,.quick-calc select{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:10px 12px;font-family:'DM Sans',sans-serif;font-size:0.9rem;margin-bottom:12px;outline:none;transition:border-color .2s;-webkit-appearance:none;}
+.quick-calc input:focus,.quick-calc select:focus{border-color:var(--accent);}
+.quick-calc select option{background:var(--bg2);}
+.calc-result{background:rgba(79,140,255,0.1);border:1px solid rgba(79,140,255,0.2);border-radius:8px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.calc-result-label{font-size:0.82rem;color:var(--muted);}
+.calc-result-value{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--accent);}
+.calc-btn{width:100%;margin-top:12px;background:var(--accent);color:#fff;border:none;border-radius:8px;padding:12px;font-size:0.95rem;font-weight:500;cursor:pointer;transition:opacity .2s;font-family:'DM Sans',sans-serif;}
+.calc-btn:hover{opacity:.85;}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
+.blog-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;text-decoration:none;transition:transform .25s,border-color .25s;}
+.blog-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,0.15);}
+.blog-thumb{height:130px;display:flex;align-items:center;justify-content:center;font-size:2.4rem;}
+.t1{background:linear-gradient(135deg,rgba(248,113,113,0.2),rgba(167,139,250,0.2));}
+.t2{background:linear-gradient(135deg,rgba(79,140,255,0.2),rgba(52,211,153,0.2));}
+.t3{background:linear-gradient(135deg,rgba(251,146,60,0.2),rgba(79,140,255,0.2));}
+.t4{background:linear-gradient(135deg,rgba(52,211,153,0.2),rgba(167,139,250,0.2));}
+.t5{background:linear-gradient(135deg,rgba(167,139,250,0.2),rgba(251,146,60,0.2));}
+.t6{background:linear-gradient(135deg,rgba(79,140,255,0.2),rgba(248,113,113,0.2));}
+.blog-content{padding:16px;}
+.blog-tag{font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:5px;}
+.blog-tag.legal{color:#f87171;}
+.blog-title{font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:700;color:var(--text);line-height:1.4;margin-bottom:5px;}
+.blog-meta{font-size:0.73rem;color:var(--muted);}
+footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:48px 5% 32px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px;}
+.footer-brand p{color:var(--muted);font-size:0.84rem;line-height:1.7;margin-top:10px;max-width:260px;}
+.footer-col h4{font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;margin-bottom:12px;color:var(--text);text-transform:uppercase;letter-spacing:.06em;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.footer-col a{color:var(--muted);text-decoration:none;font-size:0.84rem;transition:color .2s;}
+.footer-col a:hover{color:var(--text);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:0.76rem;color:var(--muted);}
+.disclaimer{font-size:0.7rem;color:rgba(122,136,168,0.6);max-width:500px;line-height:1.5;}
+@media(max-width:768px){
+  nav{padding:0 4%;}
+  .nav-links,.nav-cta{display:none;}
+  .hamburger{display:flex;}
+  .hero{padding:50px 4% 40px;}
+  .hero-btns{flex-direction:column;align-items:center;}
+  .btn-primary,.btn-secondary{width:100%;max-width:320px;text-align:center;}
+  .stats{grid-template-columns:repeat(2,1fr);margin:0 4% 40px;}
+  .stat{padding:16px 12px;}
+  .stat-num{font-size:1.4rem;}
+  .ad-banner{margin:0 4% 40px;}
+  .section{padding:0 4% 40px;}
+  .featured-tool{grid-template-columns:1fr;gap:20px;padding:22px;}
+  .tools-grid{grid-template-columns:1fr 1fr;}
+  .blog-grid{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:24px;}
+  .footer-brand{grid-column:1/-1;}
+  .footer-bottom{flex-direction:column;}
+}
+@media(max-width:420px){
+  .tools-grid{grid-template-columns:1fr;}
+  .blog-grid{grid-template-columns:1fr;}
+  .hero h1{font-size:1.9rem;}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index-en.html" class="logo"><span class="logo-dot"></span>FinGuide<span style="color:var(--accent)">.</span>net</a>
+  <ul class="nav-links">
+    <li><a href="mortgage.html">Mortgage</a></li>
+    <li><a href="auto-loan.html">Auto Loan</a></li>
+    <li><a href="legal-guide.html">Legal Guides</a></li>
+    <li><a href="insurance-guide.html">Insurance</a></li>
+    <li><a href="blog-en.html">Blog</a></li>
+  </ul>
+  <a href="mortgage.html" class="nav-cta">Calculate Now</a>
+  <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="mortgage.html" onclick="closeMenu()">🏠 Mortgage Calculator</a>
+  <a href="auto-loan.html" onclick="closeMenu()">🚗 Auto Loan Calculator</a>
+  <a href="legal-guide.html" onclick="closeMenu()">⚖️ Legal Guides</a>
+  <a href="insurance-guide.html" onclick="closeMenu()">🛡️ Insurance Guide</a>
+  <a href="blog-en.html" onclick="closeMenu()">📚 Blog</a>
+  <a href="mortgage.html" onclick="closeMenu()">→ Calculate Now</a>
+</div>
+
+<section class="hero">
+  <div class="hero-badge"><span></span>Free financial & legal tools for Americans</div>
+  <h1>Make Smarter<br>Money Decisions</h1>
+  <p>Mortgage calculators, auto loan tools, and plain-English legal guides — get clear answers in seconds, completely free.</p>
+  <div class="hero-btns">
+    <a href="mortgage.html" class="btn-primary">Calculate Mortgage</a>
+    <a href="legal-guide.html" class="btn-secondary">Legal Guides</a>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free forever</div></div>
+  <div class="stat"><div class="stat-num">5</div><div class="stat-label">Tools & guides</div></div>
+  <div class="stat"><div class="stat-num">Instant</div><div class="stat-label">Results</div></div>
+  <div class="stat"><div class="stat-num">2026</div><div class="stat-label">Updated rates</div></div>
+</div>
+
+<div class="ad-banner">
+  <span class="ad-label">AD</span>
+  <!-- Google AdSense code here -->
+  <div style="color:var(--muted);font-size:0.82rem;">Advertisement — 728×90</div>
+</div>
+
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Featured: <span>Legal Guides</span></h2>
+  </div>
+  <div class="featured-tool">
+    <div>
+      <div class="featured-label">⚖️ Most searched</div>
+      <h3 class="featured-title">Do I Need a Lawyer?</h3>
+      <p class="featured-desc">Car accident, slip and fall, wrongful termination — find out when you need an attorney and what it'll cost you, explained in plain English.</p>
+      <a href="legal-guide.html" class="btn-red">Read Legal Guides →</a>
+    </div>
+    <div class="quick-calc">
+      <label>Quick Mortgage Check</label>
+      <input type="number" id="hAmount" value="350000" inputmode="numeric" placeholder="Loan amount ($)">
+      <label>Loan Term</label>
+      <select id="hTerm">
+        <option value="180">15 years</option>
+        <option value="360" selected>30 years</option>
+      </select>
+      <label>Annual Interest Rate (%)</label>
+      <input type="number" id="hRate" value="6.8" step="0.1" inputmode="decimal">
+      <div class="calc-result">
+        <span class="calc-result-label">Monthly Payment</span>
+        <span class="calc-result-value" id="hResult">$0</span>
+      </div>
+      <button class="calc-btn" onclick="calcHome()">Calculate</button>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <h2 class="section-title">All <span>Tools & Guides</span></h2>
+    <a href="blog-en.html" class="section-link">All articles →</a>
+  </div>
+  <div class="tools-grid">
+    <a href="mortgage.html" class="tool-card blue">
+      <div class="tool-icon i-blue">🏠</div>
+      <div><div class="tool-name">Mortgage Calculator</div><div class="tool-desc">Monthly payment, total interest, amortization table with current 2026 rates.</div></div>
+      <span class="tool-tag t-blue">Calculator</span>
+      <div class="tool-arrow">→</div>
+    </a>
+    <a href="auto-loan.html" class="tool-card purple">
+      <div class="tool-icon i-purple">🚗</div>
+      <div><div class="tool-name">Auto Loan Calculator</div><div class="tool-desc">Car payment estimator, compare terms and lenders side by side.</div></div>
+      <span class="tool-tag t-purple">Calculator</span>
+      <div class="tool-arrow">→</div>
+    </a>
+    <a href="legal-guide.html" class="tool-card red">
+      <div class="tool-icon i-red">⚖️</div>
+      <div><div class="tool-name">Legal Guides</div><div class="tool-desc">Car accidents, slip & fall, wrongful termination — when to hire a lawyer.</div></div>
+      <span class="tool-tag t-red">Free Guide</span>
+      <div class="tool-arrow">→</div>
+    </a>
+    <a href="insurance-guide.html" class="tool-card green">
+      <div class="tool-icon i-green">🛡️</div>
+      <div><div class="tool-name">Insurance Guide</div><div class="tool-desc">Compare auto, home, and health insurance. What coverage do you actually need?</div></div>
+      <span class="tool-tag t-green">Guide</span>
+      <div class="tool-arrow">→</div>
+    </a>
+    <a href="blog-en.html" class="tool-card orange">
+      <div class="tool-icon i-orange">📚</div>
+      <div><div class="tool-name">Finance Blog</div><div class="tool-desc">Mortgage tips, rate updates, legal Q&As — updated daily.</div></div>
+      <span class="tool-tag t-orange">Blog</span>
+      <div class="tool-arrow">→</div>
+    </a>
+  </div>
+</section>
+
+<div class="ad-banner">
+  <span class="ad-label">AD</span>
+  <div style="color:var(--muted);font-size:0.82rem;">Advertisement — 728×90</div>
+</div>
+
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Latest <span>Articles</span></h2>
+    <a href="blog-en.html" class="section-link">View all →</a>
+  </div>
+  <div class="blog-grid">
+    <a href="legal-guide.html" class="blog-card">
+      <div class="blog-thumb t1">⚖️</div>
+      <div class="blog-content">
+        <div class="blog-tag legal">Legal</div>
+        <div class="blog-title">How Much Is My Car Accident Worth?</div>
+        <div class="blog-meta">7 min read · June 2026</div>
+      </div>
+    </a>
+    <a href="mortgage.html" class="blog-card">
+      <div class="blog-thumb t2">📊</div>
+      <div class="blog-content">
+        <div class="blog-tag">Mortgage</div>
+        <div class="blog-title">June 2026 Mortgage Rates: Best Banks Compared</div>
+        <div class="blog-meta">5 min read · June 2026</div>
+      </div>
+    </a>
+    <a href="legal-guide.html" class="blog-card">
+      <div class="blog-thumb t3">🏢</div>
+      <div class="blog-content">
+        <div class="blog-tag legal">Legal</div>
+        <div class="blog-title">Wrongful Termination: Do You Have a Case?</div>
+        <div class="blog-meta">6 min read · May 2026</div>
+      </div>
+    </a>
+    <a href="insurance-guide.html" class="blog-card">
+      <div class="blog-thumb t4">🛡️</div>
+      <div class="blog-content">
+        <div class="blog-tag">Insurance</div>
+        <div class="blog-title">Full Coverage vs Liability: Which Do You Need?</div>
+        <div class="blog-meta">5 min read · May 2026</div>
+      </div>
+    </a>
+    <a href="legal-guide.html" class="blog-card">
+      <div class="blog-thumb t5">🏠</div>
+      <div class="blog-content">
+        <div class="blog-tag legal">Legal</div>
+        <div class="blog-title">Slip and Fall on Someone's Property: Your Rights</div>
+        <div class="blog-meta">4 min read · May 2026</div>
+      </div>
+    </a>
+    <a href="blog-en.html" class="blog-card">
+      <div class="blog-thumb t6">💰</div>
+      <div class="blog-content">
+        <div class="blog-tag">Finance</div>
+        <div class="blog-title">Should You Pay Off Mortgage Early? The Math</div>
+        <div class="blog-meta">8 min read · April 2026</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index-en.html" class="logo"><span class="logo-dot"></span>FinGuide<span style="color:var(--accent)">.</span>net</a>
+      <p>Free financial calculators and plain-English legal guides for everyday Americans.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Tools</h4>
+      <ul>
+        <li><a href="mortgage.html">Mortgage Calculator</a></li>
+        <li><a href="auto-loan.html">Auto Loan Calculator</a></li>
+        <li><a href="insurance-guide.html">Insurance Guide</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="legal-guide.html">Car Accidents</a></li>
+        <li><a href="legal-guide.html">Workplace Rights</a></li>
+        <li><a href="legal-guide.html">Personal Injury</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 FinGuide.net · All rights reserved.</p>
+    <p class="disclaimer">This site provides general information only and does not constitute legal or financial advice. Always consult a licensed professional for your specific situation.</p>
+  </div>
+</footer>
+<script>
+function toggleMenu(){
+  const m=document.getElementById('mobileMenu');
+  const h=document.getElementById('hamburger');
+  m.classList.toggle('open');
+  const s=h.querySelectorAll('span');
+  if(m.classList.contains('open')){s[0].style.transform='rotate(45deg) translate(5px,5px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(5px,-5px)';}
+  else{s[0].style.transform='';s[1].style.opacity='';s[2].style.transform='';}
+}
+function closeMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  const s=document.getElementById('hamburger').querySelectorAll('span');
+  s[0].style.transform='';s[1].style.opacity='';s[2].style.transform='';
+}
+function fmt(n){return'$'+Math.round(n).toLocaleString('en-US');}
+function calcHome(){
+  const P=parseFloat(document.getElementById('hAmount').value)||350000;
+  const n=parseInt(document.getElementById('hTerm').value)||360;
+  const r=(parseFloat(document.getElementById('hRate').value)||6.8)/100/12;
+  const pmt=r===0?P/n:P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+  document.getElementById('hResult').textContent=fmt(pmt);
+}
+calcHome();
+['hAmount','hRate'].forEach(id=>document.getElementById(id).addEventListener('input',calcHome));
+document.getElementById('hTerm').addEventListener('change',calcHome);
+</script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Privacy Policy for FinGuide.net — how we collect, use, and protect your information.">
+<title>Privacy Policy — FinGuide.net</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0f1e;--card:#141d35;--card2:#1a2540;--border:rgba(255,255,255,0.07);--accent:#4f8cff;--text:#f0f4ff;--muted:#7a88a8;--radius:16px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 20% 10%,rgba(79,140,255,0.08) 0%,transparent 60%);pointer-events:none;z-index:0;}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,15,30,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:60px;}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px;}
+.logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;}
+.nav-links{display:flex;gap:1.4rem;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;transition:color .2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{background:var(--accent);color:#fff;padding:8px 18px;border-radius:8px;font-size:0.83rem;font-weight:500;text-decoration:none;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s;}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(10,15,30,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:20px 5%;z-index:99;flex-direction:column;gap:4px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:var(--muted);text-decoration:none;font-size:1rem;padding:12px 0;border-bottom:1px solid var(--border);}
+.mobile-menu a:last-child{border-bottom:none;color:var(--accent);font-weight:500;}
+.content{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:60px 5% 80px;}
+.breadcrumb{font-size:0.78rem;color:var(--muted);margin-bottom:20px;}
+.breadcrumb a{color:var(--muted);text-decoration:none;}
+.breadcrumb a:hover{color:var(--accent);}
+h1{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;margin-bottom:8px;}
+.updated{font-size:0.82rem;color:var(--muted);margin-bottom:40px;}
+.section{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:20px;}
+.section h2{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:14px;color:var(--text);}
+.section p{font-size:0.9rem;color:var(--muted);line-height:1.8;margin-bottom:12px;}
+.section p:last-child{margin-bottom:0;}
+.section ul{padding-left:18px;display:flex;flex-direction:column;gap:8px;margin-top:8px;}
+.section ul li{font-size:0.9rem;color:var(--muted);line-height:1.7;}
+.section a{color:var(--accent);}
+.highlight{background:rgba(79,140,255,0.08);border:1px solid rgba(79,140,255,0.2);border-radius:10px;padding:16px 20px;margin-bottom:20px;}
+.highlight p{font-size:0.88rem;color:var(--muted);line-height:1.7;margin:0;}
+footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32px 5%;text-align:center;}
+footer p{font-size:0.78rem;color:var(--muted);}
+footer a{color:var(--muted);text-decoration:none;margin:0 12px;}
+footer a:hover{color:var(--text);}
+@media(max-width:768px){.nav-links,.nav-cta{display:none;}.hamburger{display:flex;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index-en.html" class="logo"><span class="logo-dot"></span>FinGuide<span style="color:var(--accent)">.</span>net</a>
+  <ul class="nav-links">
+    <li><a href="mortgage.html">Mortgage</a></li>
+    <li><a href="auto-loan.html">Auto Loan</a></li>
+    <li><a href="legal-guide.html">Legal Guides</a></li>
+    <li><a href="insurance-guide.html">Insurance</a></li>
+  </ul>
+  <a href="mortgage.html" class="nav-cta">Calculators</a>
+  <div class="hamburger" onclick="toggleMenu()" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="mortgage.html" onclick="closeMenu()">🏠 Mortgage Calculator</a>
+  <a href="legal-guide.html" onclick="closeMenu()">⚖️ Legal Guides</a>
+  <a href="insurance-guide.html" onclick="closeMenu()">🛡️ Insurance</a>
+  <a href="mortgage.html" onclick="closeMenu()">→ Calculators</a>
+</div>
+<div class="content">
+  <div class="breadcrumb"><a href="index-en.html">Home</a> / Privacy Policy</div>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: June 1, 2026</p>
+
+  <div class="highlight">
+    <p>FinGuide.net is committed to protecting your privacy. This policy explains what information we collect, how we use it, and your rights regarding your data.</p>
+  </div>
+
+  <div class="section">
+    <h2>1. Information We Collect</h2>
+    <p>We collect information in the following ways:</p>
+    <ul>
+      <li><strong>Usage data:</strong> Pages visited, time spent, browser type, device type, and IP address — collected automatically via cookies and analytics tools.</li>
+      <li><strong>Calculator inputs:</strong> Numbers you enter into our calculators are processed locally in your browser and are not stored on our servers.</li>
+      <li><strong>Contact information:</strong> If you contact us via email, we collect your name and email address to respond to your inquiry.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>2. How We Use Your Information</h2>
+    <p>We use the information collected to:</p>
+    <ul>
+      <li>Operate and improve the website and its tools</li>
+      <li>Analyze site traffic and user behavior to improve content</li>
+      <li>Display relevant advertisements through Google AdSense</li>
+      <li>Respond to your inquiries and support requests</li>
+      <li>Comply with legal obligations</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>3. Google AdSense & Cookies</h2>
+    <p>We use Google AdSense to display advertisements. Google uses cookies to serve ads based on your prior visits to our site and other sites on the internet.</p>
+    <p>Google's use of advertising cookies enables it and its partners to serve ads based on your visit to our site. You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank">Google Ads Settings</a>.</p>
+    <p>We also use Google Analytics to understand how visitors interact with our site. This data is anonymous and aggregated.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Third-Party Services</h2>
+    <p>Our site may contain links to third-party websites (banks, attorneys, insurance companies). We are not responsible for the privacy practices of those sites. We encourage you to review their privacy policies before providing any personal information.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Data Retention</h2>
+    <p>We retain usage data for up to 26 months for analytics purposes. Contact information is retained only as long as necessary to resolve your inquiry.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Your Rights</h2>
+    <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+    <ul>
+      <li>Right to access the data we hold about you</li>
+      <li>Right to request deletion of your data</li>
+      <li>Right to opt out of data collection for advertising purposes</li>
+      <li>Right to lodge a complaint with a supervisory authority</li>
+    </ul>
+    <p>To exercise any of these rights, please contact us at <a href="mailto:info@finguide.net">info@finguide.net</a>.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Children's Privacy</h2>
+    <p>FinGuide.net is not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us immediately.</p>
+  </div>
+
+  <div class="section">
+    <h2>8. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by updating the "Last updated" date at the top of this page. We encourage you to review this policy periodically.</p>
+  </div>
+
+  <div class="section">
+    <h2>9. Contact Us</h2>
+    <p>If you have any questions about this Privacy Policy, please contact us:</p>
+    <ul>
+      <li>Email: <a href="mailto:info@finguide.net">info@finguide.net</a></li>
+      <li>Website: <a href="index-en.html">finguide.netlify.app</a></li>
+    </ul>
+  </div>
+</div>
+<footer>
+  <p>
+    <a href="index-en.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="contact.html">Contact</a>
+  </p>
+  <p style="margin-top:12px;">© 2026 FinGuide.net · All rights reserved.</p>
+</footer>
+<script>
+function toggleMenu(){const m=document.getElementById('mobileMenu');m.classList.toggle('open');const s=document.getElementById('hamburger').querySelectorAll('span');if(m.classList.contains('open')){s[0].style.transform='rotate(45deg) translate(5px,5px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(5px,-5px)';}else{s[0].style.transform='';s[1].style.opacity='';s[2].style.transform='';}}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');const s=document.getElementById('hamburger').querySelectorAll('span');s[0].style.transform='';s[1].style.opacity='';s[2].style.transform='';}
+</script>
+</body>
+</html>

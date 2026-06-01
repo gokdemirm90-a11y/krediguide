@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="2026 güncel faiz oranlarıyla taşıt kredisi hesaplama. Araç kredisi taksit, toplam maliyet, banka karşılaştırma.">
+<title>Taşıt Kredisi Hesaplama 2026 — Kredim.net</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0f1e;--bg2:#0f1628;--card:#141d35;--card2:#1a2540;--border:rgba(255,255,255,0.07);--accent:#a78bfa;--accent2:#4f8cff;--accent3:#34d399;--text:#f0f4ff;--muted:#7a88a8;--radius:16px;--radius-sm:10px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 50% at 30% 20%,rgba(167,139,250,0.12) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 70% 70%,rgba(79,140,255,0.10) 0%,transparent 55%);pointer-events:none;z-index:0;}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,15,30,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px;}
+.logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);display:inline-block;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--text);}
+.nav-cta{background:var(--accent);color:#fff;padding:8px 20px;border-radius:8px;font-size:0.85rem;font-weight:500;text-decoration:none;}
+
+.page-header{position:relative;z-index:1;padding:60px 5% 40px;}
+.breadcrumb{font-size:0.8rem;color:var(--muted);margin-bottom:16px;}
+.breadcrumb a{color:var(--muted);text-decoration:none;}
+.breadcrumb a:hover{color:var(--accent);}
+.page-header h1{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:12px;}
+.page-header p{color:var(--muted);max-width:520px;line-height:1.7;}
+
+.main{position:relative;z-index:1;padding:0 5% 80px;display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:start;}
+
+.calc-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px;}
+.calc-card h2{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:24px;}
+
+/* Car type selector */
+.car-types{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px;}
+.car-type{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:14px 10px;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;}
+.car-type.active{border-color:var(--accent);background:rgba(167,139,250,0.1);}
+.car-type-icon{font-size:1.6rem;margin-bottom:6px;}
+.car-type-name{font-size:0.8rem;color:var(--muted);font-weight:500;}
+.car-type.active .car-type-name{color:var(--accent);}
+
+.input-group{margin-bottom:20px;}
+.input-group label{display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:var(--muted);margin-bottom:8px;}
+.input-group label span{font-weight:500;color:var(--text);font-family:'Syne',sans-serif;}
+.input-row{display:flex;gap:10px;align-items:center;}
+input[type=range]{flex:1;-webkit-appearance:none;height:4px;border-radius:2px;background:var(--card2);outline:none;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--accent);cursor:pointer;box-shadow:0 0 12px rgba(167,139,250,0.5);}
+.num-input{width:130px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px 12px;font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;transition:border-color .2s;}
+.num-input:focus{border-color:var(--accent);}
+
+.calc-btn-main{width:100%;margin-top:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:10px;padding:14px;font-size:1rem;font-weight:600;cursor:pointer;font-family:'Syne',sans-serif;transition:opacity .2s;}
+.calc-btn-main:hover{opacity:.9;}
+
+.results-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-top:24px;}
+.results-card h2{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:24px;}
+.result-hero{background:linear-gradient(135deg,rgba(167,139,250,0.1),rgba(79,140,255,0.1));border:1px solid rgba(167,139,250,0.2);border-radius:12px;padding:24px;text-align:center;margin-bottom:20px;}
+.result-hero-label{font-size:0.82rem;color:var(--muted);margin-bottom:6px;}
+.result-hero-value{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;color:var(--accent);}
+.result-hero-sub{font-size:0.8rem;color:var(--muted);margin-top:4px;}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+.result-item{background:var(--card2);border-radius:10px;padding:16px;}
+.result-item-label{font-size:0.78rem;color:var(--muted);margin-bottom:4px;}
+.result-item-value{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;}
+.result-item-value.red{color:#f87171;}
+.result-item-value.green{color:var(--accent3);}
+
+.compare-table{width:100%;border-collapse:collapse;font-size:0.85rem;margin-top:8px;}
+.compare-table th{padding:10px 14px;text-align:left;color:var(--muted);font-weight:500;font-size:0.8rem;background:var(--card2);}
+.compare-table td{padding:10px 14px;border-top:1px solid var(--border);}
+.compare-table tr:hover td{background:rgba(255,255,255,0.02);}
+.rate-badge{display:inline-block;background:rgba(167,139,250,0.12);color:var(--accent);padding:2px 8px;border-radius:6px;font-weight:600;font-family:'Syne',sans-serif;}
+.best-badge{background:rgba(52,211,153,0.12);color:var(--accent3);}
+
+.sidebar{display:flex;flex-direction:column;gap:20px;}
+.sidebar-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;}
+.sidebar-card h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:16px;}
+.tip-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);}
+.tip-item:last-child{border-bottom:none;}
+.tip-icon{font-size:1.1rem;flex-shrink:0;margin-top:2px;}
+.tip-text{font-size:0.83rem;color:var(--muted);line-height:1.5;}
+.tip-text strong{color:var(--text);}
+.ad-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;min-height:250px;display:flex;align-items:center;justify-content:center;position:relative;}
+.ad-label-sm{position:absolute;top:8px;left:12px;font-size:0.65rem;color:rgba(255,255,255,0.2);letter-spacing:.05em;}
+
+/* Vade comparison */
+.vade-comparison{margin-top:20px;}
+.vade-row{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--border);}
+.vade-row:last-child{border-bottom:none;}
+.vade-label{font-size:0.82rem;color:var(--muted);min-width:60px;}
+.vade-bar-bg{flex:1;height:6px;border-radius:3px;background:var(--card2);overflow:hidden;}
+.vade-bar-fill{height:100%;border-radius:3px;background:var(--accent);transition:width .4s;}
+.vade-value{font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:600;min-width:80px;text-align:right;}
+
+@media(max-width:900px){.main{grid-template-columns:1fr;}.nav-links{display:none;}.car-types{grid-template-columns:repeat(3,1fr);}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo"><span class="logo-dot"></span>Kredim<span style="color:var(--accent2)">.</span>net</a>
+  <ul class="nav-links">
+    <li><a href="konut-kredisi.html">Konut Kredisi</a></li>
+    <li><a href="tasit-kredisi.html" class="active">Taşıt Kredisi</a></li>
+    <li><a href="kasko.html">Kasko & Sigorta</a></li>
+    <li><a href="blog.html">Rehber</a></li>
+  </ul>
+  <a href="kasko.html" class="nav-cta">Kasko Rehberi →</a>
+</nav>
+
+<div class="page-header">
+  <div class="breadcrumb"><a href="index.html">Ana Sayfa</a> / Taşıt Kredisi Hesaplama</div>
+  <h1>🚗 Taşıt Kredisi<br>Hesaplayıcı 2026</h1>
+  <p>Araç kredisi taksitini hesapla, farklı vadeleri karşılaştır, en uygun seçeneği bul.</p>
+</div>
+
+<div class="main">
+  <div>
+    <div class="calc-card">
+      <h2>Araç Bilgilerini Gir</h2>
+
+      <div class="car-types">
+        <div class="car-type active" onclick="selectCar(this,'🚗','Binek')">
+          <div class="car-type-icon">🚗</div>
+          <div class="car-type-name">Binek</div>
+        </div>
+        <div class="car-type" onclick="selectCar(this,'🚐','Ticari')">
+          <div class="car-type-icon">🚐</div>
+          <div class="car-type-name">Ticari</div>
+        </div>
+        <div class="car-type" onclick="selectCar(this,'🏍️','Motosiklet')">
+          <div class="car-type-icon">🏍️</div>
+          <div class="car-type-name">Motosiklet</div>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Araç Fiyatı <span id="priceLabel">₺1.200.000</span></label>
+        <div class="input-row">
+          <input type="range" id="priceSlider" min="100000" max="5000000" step="50000" value="1200000" oninput="syncPrice(this.value)">
+          <input type="text" class="num-input" id="priceInput" value="1.200.000" oninput="syncPriceInput(this.value)">
+        </div>
+      </div>
+      <div class="input-group">
+        <label>Peşinat <span id="downLabel">₺240.000 (%20)</span></label>
+        <div class="input-row">
+          <input type="range" id="downSlider" min="0" max="80" step="5" value="20" oninput="syncDown(this.value)">
+          <input type="number" class="num-input" id="downInput" value="20" min="0" max="80" oninput="syncDownInput(this.value)"> <span style="color:var(--muted);font-size:0.85rem;margin-left:-4px">%</span>
+        </div>
+      </div>
+      <div class="input-group">
+        <label>Vade <span id="termLabel">48 ay</span></label>
+        <div class="input-row">
+          <input type="range" id="termSlider" min="12" max="84" step="12" value="48" oninput="syncTerm(this.value)">
+          <input type="number" class="num-input" id="termInput" value="48" min="6" max="84" oninput="syncTermInput(this.value)">
+        </div>
+      </div>
+      <div class="input-group">
+        <label>Aylık Faiz Oranı <span id="rateLabel">%3.69</span></label>
+        <div class="input-row">
+          <input type="range" id="rateSlider" min="0.5" max="8" step="0.01" value="3.69" oninput="syncRate(this.value)">
+          <input type="number" class="num-input" id="rateInput" value="3.69" step="0.01" oninput="syncRateInput(this.value)">
+        </div>
+      </div>
+      <button class="calc-btn-main" onclick="calculate()">Hesapla →</button>
+    </div>
+
+    <div class="results-card">
+      <h2>Hesaplama Sonuçları</h2>
+      <div class="result-hero">
+        <div class="result-hero-label">Aylık Taksit</div>
+        <div class="result-hero-value" id="monthlyPayment">₺0</div>
+        <div class="result-hero-sub" id="totalMonths">— ay boyunca</div>
+      </div>
+      <div class="result-grid">
+        <div class="result-item">
+          <div class="result-item-label">Kredi Tutarı</div>
+          <div class="result-item-value green" id="loanAmount">₺0</div>
+        </div>
+        <div class="result-item">
+          <div class="result-item-label">Toplam Faiz</div>
+          <div class="result-item-value red" id="totalInterest">₺0</div>
+        </div>
+        <div class="result-item">
+          <div class="result-item-label">Toplam Ödeme</div>
+          <div class="result-item-value" id="totalPayment">₺0</div>
+        </div>
+        <div class="result-item">
+          <div class="result-item-label">Peşinat</div>
+          <div class="result-item-value" id="downPayment">₺0</div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <div style="font-size:0.85rem;color:var(--muted);margin-bottom:12px;">Vade karşılaştırması</div>
+        <div class="vade-comparison" id="vadeComp"></div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;">
+      <div class="calc-card">
+        <h2>🏦 Banka Taşıt Kredisi Oranları</h2>
+        <table class="compare-table">
+          <thead><tr><th>Banka</th><th>Aylık Faiz</th><th>48 Ay Taksit*</th><th></th></tr></thead>
+          <tbody id="bankTable"></tbody>
+        </table>
+        <div style="margin-top:12px;font-size:0.75rem;color:var(--muted);">* ₺960.000 kredi için hesaplanmıştır. Oranlar yaklaşık olup değişebilir.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="sidebar-card">
+      <h3>💡 Taşıt Kredisi İpuçları</h3>
+      <div class="tip-item"><span class="tip-icon">🎯</span><div class="tip-text"><strong>Araç yaşı:</strong> Genellikle 7 yaşından büyük araçlara kredi verilmez.</div></div>
+      <div class="tip-item"><span class="tip-icon">📋</span><div class="tip-text"><strong>Belgeler:</strong> Kasko poliçesi, ruhsat fotokopisi ve gelir belgesi gerekir.</div></div>
+      <div class="tip-item"><span class="tip-icon">💰</span><div class="tip-text"><strong>Peşinat:</strong> Yüksek peşinat, toplam faiz yükünü önemli ölçüde azaltır.</div></div>
+      <div class="tip-item"><span class="tip-icon">🔄</span><div class="tip-text"><strong>Kredi notu:</strong> İyi kredi notu daha düşük faiz imkânı sağlar.</div></div>
+      <div class="tip-item"><span class="tip-icon">⚡</span><div class="tip-text"><strong>Elektrikli araç:</strong> Bazı bankalar EV için özel düşük faiz sunuyor.</div></div>
+    </div>
+    <div class="ad-box">
+      <span class="ad-label-sm">REKLAM</span>
+      <div style="color:var(--muted);font-size:0.82rem;">Reklam — 300×250</div>
+    </div>
+    <div class="sidebar-card">
+      <h3>🔗 Diğer Araçlar</h3>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+        <a href="konut-kredisi.html" style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--card2);border-radius:10px;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='var(--bg)'" onmouseout="this.style.background='var(--card2)'">
+          <span style="font-size:1.2rem;">🏠</span>
+          <div><div style="font-size:0.88rem;font-weight:500;color:var(--text);">Konut Kredisi</div><div style="font-size:0.78rem;color:var(--muted);">Ev almak için hesapla</div></div>
+        </a>
+        <a href="kasko.html" style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--card2);border-radius:10px;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='var(--bg)'" onmouseout="this.style.background='var(--card2)'">
+          <span style="font-size:1.2rem;">🛡️</span>
+          <div><div style="font-size:0.88rem;font-weight:500;color:var(--text);">Kasko Rehberi</div><div style="font-size:0.78rem;color:var(--muted);">Araç sigortasını karşılaştır</div></div>
+        </a>
+      </div>
+    </div>
+    <div class="ad-box">
+      <span class="ad-label-sm">REKLAM</span>
+      <div style="color:var(--muted);font-size:0.82rem;">Reklam — 300×250</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const banks=[
+  {name:'Ziraat Bankası',rate:3.59},
+  {name:'Halkbank',rate:3.65},
+  {name:'İş Bankası',rate:3.69},
+  {name:'Garanti BBVA',rate:3.75},
+  {name:'Yapı Kredi',rate:3.79},
+  {name:'Akbank',rate:3.82},
+];
+function fmt(n){return'₺'+Math.round(n).toLocaleString('tr-TR');}
+function getPrice(){return parseInt((document.getElementById('priceInput').value||'').replace(/\./g,'').replace(/,/g,''))||1200000;}
+function getLoan(){const p=getPrice();const d=parseInt(document.getElementById('downInput').value)||20;return p*(1-d/100);}
+
+function syncPrice(v){document.getElementById('priceLabel').textContent='₺'+parseInt(v).toLocaleString('tr-TR');document.getElementById('priceInput').value=parseInt(v).toLocaleString('tr-TR');updateDown();calculate();}
+function syncPriceInput(v){const r=parseInt(v.replace(/\./g,'')||0);document.getElementById('priceSlider').value=r;document.getElementById('priceLabel').textContent='₺'+r.toLocaleString('tr-TR');updateDown();calculate();}
+function syncDown(v){document.getElementById('downInput').value=v;updateDown();calculate();}
+function syncDownInput(v){document.getElementById('downSlider').value=v;updateDown();calculate();}
+function updateDown(){const p=getPrice();const d=parseInt(document.getElementById('downInput').value)||20;document.getElementById('downLabel').textContent='₺'+(p*d/100).toLocaleString('tr-TR')+' (%'+d+')';}
+function syncTerm(v){document.getElementById('termLabel').textContent=v+' ay';document.getElementById('termInput').value=v;calculate();}
+function syncTermInput(v){document.getElementById('termSlider').value=v;document.getElementById('termLabel').textContent=v+' ay';calculate();}
+function syncRate(v){document.getElementById('rateLabel').textContent='%'+parseFloat(v).toFixed(2);document.getElementById('rateInput').value=parseFloat(v).toFixed(2);calculate();}
+function syncRateInput(v){document.getElementById('rateSlider').value=v;document.getElementById('rateLabel').textContent='%'+parseFloat(v).toFixed(2);calculate();}
+
+function calcPayment(P,n,r){return P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);}
+
+function calculate(){
+  const P=getLoan();
+  const n=parseInt(document.getElementById('termInput').value)||48;
+  const r=parseFloat(document.getElementById('rateInput').value)/100||0.0369;
+  const price=getPrice();
+  const down=price-P;
+  const payment=calcPayment(P,n,r);
+  const total=payment*n;
+  const interest=total-P;
+
+  document.getElementById('monthlyPayment').textContent=fmt(payment);
+  document.getElementById('totalMonths').textContent=n+' ay boyunca';
+  document.getElementById('loanAmount').textContent=fmt(P);
+  document.getElementById('totalInterest').textContent=fmt(interest);
+  document.getElementById('totalPayment').textContent=fmt(total+down);
+  document.getElementById('downPayment').textContent=fmt(down);
+
+  const terms=[12,24,36,48,60,72,84];
+  const maxPay=calcPayment(P,12,r);
+  document.getElementById('vadeComp').innerHTML=terms.map(t=>{
+    const pmt=calcPayment(P,t,r);
+    const w=Math.round(pmt/maxPay*100);
+    return`<div class="vade-row"><div class="vade-label">${t} ay</div><div class="vade-bar-bg"><div class="vade-bar-fill" style="width:${w}%"></div></div><div class="vade-value">${fmt(pmt)}/ay</div></div>`;
+  }).join('');
+
+  const minRate=Math.min(...banks.map(b=>b.rate));
+  document.getElementById('bankTable').innerHTML=banks.map(b=>{
+    const pmt=calcPayment(P,n,b.rate/100);
+    const best=b.rate===minRate;
+    return`<tr><td style="font-weight:500">${b.name}</td><td><span class="rate-badge${best?' best-badge':''}">%${b.rate}</span></td><td style="font-family:'Syne',sans-serif;font-weight:600">${fmt(pmt)}</td><td>${best?'⭐ En iyi':''}</td></tr>`;
+  }).join('');
+}
+
+function selectCar(el,icon,name){
+  document.querySelectorAll('.car-type').forEach(e=>e.classList.remove('active'));
+  el.classList.add('active');
+  const rates={Binek:3.69,Ticari:3.89,Motosiklet:4.19};
+  const r=rates[name]||3.69;
+  document.getElementById('rateInput').value=r;
+  document.getElementById('rateSlider').value=r;
+  document.getElementById('rateLabel').textContent='%'+r.toFixed(2);
+  calculate();
+}
+calculate();
+</script>
+</body>
+</html>

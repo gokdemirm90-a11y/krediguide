@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free insurance guide 2026. Auto, home, and health insurance explained. Full coverage vs liability, what you actually need.">
+<title>Insurance Guide 2026 — FinGuide.net</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0f1e;--bg2:#0f1628;--card:#141d35;--card2:#1a2540;--border:rgba(255,255,255,0.07);--accent:#34d399;--accent2:#4f8cff;--accent3:#a78bfa;--text:#f0f4ff;--muted:#7a88a8;--radius:16px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 50% at 70% 10%,rgba(52,211,153,0.10) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 20% 80%,rgba(79,140,255,0.08) 0%,transparent 55%);pointer-events:none;z-index:0;}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,15,30,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px;}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);display:inline-block;}
+.nav-links{display:flex;gap:1.4rem;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;transition:color .2s;white-space:nowrap;}
+.nav-links a:hover,.nav-links a.active{color:var(--text);}
+.nav-cta{background:var(--accent2);color:#fff;padding:8px 18px;border-radius:8px;font-size:0.83rem;font-weight:500;text-decoration:none;white-space:nowrap;flex-shrink:0;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;flex-shrink:0;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s;}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(10,15,30,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:20px 5%;z-index:99;flex-direction:column;gap:4px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:var(--muted);text-decoration:none;font-size:1rem;padding:12px 0;border-bottom:1px solid var(--border);transition:color .2s;}
+.mobile-menu a:last-child{border-bottom:none;color:var(--accent2);font-weight:500;}
+.page-header{position:relative;z-index:1;padding:60px 5% 40px;}
+.breadcrumb{font-size:0.78rem;color:var(--muted);margin-bottom:16px;}
+.breadcrumb a{color:var(--muted);text-decoration:none;}
+.page-header h1{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:12px;line-height:1.15;}
+.page-header p{color:var(--muted);max-width:520px;line-height:1.7;}
+.main{position:relative;z-index:1;padding:0 5% 80px;}
+.ins-tabs{display:flex;gap:10px;margin-bottom:32px;flex-wrap:wrap;}
+.tab-btn{background:var(--card2);border:1px solid var(--border);border-radius:999px;padding:9px 20px;font-size:0.85rem;color:var(--muted);cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;}
+.tab-btn:hover{color:var(--text);}
+.tab-btn.active{background:rgba(52,211,153,0.15);border-color:rgba(52,211,153,0.4);color:var(--accent);}
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+.ins-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:32px;}
+.ins-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px;position:relative;}
+.ins-card.rec{border-color:rgba(52,211,153,0.35);}
+.rec-tag{position:absolute;top:14px;right:14px;background:rgba(52,211,153,0.12);color:var(--accent);font-size:0.7rem;font-weight:600;padding:3px 10px;border-radius:999px;}
+.ins-icon{font-size:1.8rem;margin-bottom:14px;}
+.ins-name{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:8px;}
+.ins-desc{color:var(--muted);font-size:0.85rem;line-height:1.6;margin-bottom:16px;}
+.cov-list{display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
+.cov-item{display:flex;align-items:center;gap:9px;font-size:0.83rem;}
+.ck{color:var(--accent);font-weight:700;}
+.cx{color:#f87171;}
+.price-row{padding-top:14px;border-top:1px solid var(--border);}
+.price-lbl{font-size:0.75rem;color:var(--muted);margin-bottom:3px;}
+.price-val{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--accent);}
+.compare-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border);margin-bottom:32px;}
+table{width:100%;border-collapse:collapse;font-size:0.84rem;}
+thead{background:var(--card2);}
+th{padding:13px 16px;text-align:left;color:var(--muted);font-weight:500;font-size:0.8rem;}
+td{padding:11px 16px;border-top:1px solid var(--border);}
+tr:hover td{background:rgba(255,255,255,0.02);}
+.cy{color:var(--accent);font-weight:700;}
+.cn{color:#f87171;font-weight:700;}
+.cp{color:#fbbf24;}
+.faq-section{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;}
+.faq-section h2{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:20px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-item:last-child{border-bottom:none;}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:14px 0;cursor:pointer;gap:12px;}
+.faq-q-text{font-weight:500;font-size:0.88rem;}
+.faq-toggle{color:var(--muted);font-size:1rem;flex-shrink:0;transition:transform .2s;}
+.faq-item.open .faq-toggle{transform:rotate(45deg);}
+.faq-a{color:var(--muted);font-size:0.84rem;line-height:1.7;padding-bottom:13px;display:none;}
+.faq-item.open .faq-a{display:block;}
+.ad-banner{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;min-height:90px;display:flex;align-items:center;justify-content:center;position:relative;margin:0 0 32px;}
+.ad-lbl{position:absolute;top:8px;left:12px;font-size:0.65rem;color:rgba(255,255,255,0.2);}
+@media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.main{padding:0 4% 60px;}.page-header{padding:50px 4% 30px;}.ins-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index-en.html" class="logo"><span class="logo-dot"></span>FinGuide<span style="color:var(--accent2)">.</span>net</a>
+  <ul class="nav-links">
+    <li><a href="mortgage.html">Mortgage</a></li>
+    <li><a href="auto-loan.html">Auto Loan</a></li>
+    <li><a href="legal-guide.html">Legal Guides</a></li>
+    <li><a href="insurance-guide.html" class="active">Insurance</a></li>
+    <li><a href="blog-en.html">Blog</a></li>
+  </ul>
+  <a href="legal-guide.html" class="nav-cta">Legal Guides</a>
+  <div class="hamburger" onclick="toggleMenu()" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="mortgage.html" onclick="closeMenu()">🏠 Mortgage Calculator</a>
+  <a href="auto-loan.html" onclick="closeMenu()">🚗 Auto Loan Calculator</a>
+  <a href="legal-guide.html" onclick="closeMenu()">⚖️ Legal Guides</a>
+  <a href="insurance-guide.html" onclick="closeMenu()">🛡️ Insurance Guide</a>
+  <a href="blog-en.html" onclick="closeMenu()">📚 Blog</a>
+  <a href="legal-guide.html" onclick="closeMenu()">→ Legal Guides</a>
+</div>
+<div class="page-header">
+  <div class="breadcrumb"><a href="index-en.html">Home</a> / Insurance Guide</div>
+  <h1>🛡️ Insurance Guide 2026<br>What Do You Actually Need?</h1>
+  <p>Auto, home, and health insurance explained plainly. Compare coverage options and stop overpaying.</p>
+</div>
+<div class="main">
+  <div class="ins-tabs">
+    <button class="tab-btn active" onclick="switchTab(this,'auto')">🚗 Auto Insurance</button>
+    <button class="tab-btn" onclick="switchTab(this,'home')">🏠 Home Insurance</button>
+    <button class="tab-btn" onclick="switchTab(this,'health')">❤️ Health Insurance</button>
+  </div>
+
+  <div id="tab-auto" class="tab-content active">
+    <div class="ins-grid">
+      <div class="ins-card">
+        <div class="ins-icon">🔵</div>
+        <div class="ins-name">Liability Only</div>
+        <div class="ins-desc">State minimum coverage. Covers damage you cause to others — not your own vehicle.</div>
+        <div class="cov-list">
+          <div class="cov-item"><span class="ck">✓</span> Bodily injury liability</div>
+          <div class="cov-item"><span class="ck">✓</span> Property damage liability</div>
+          <div class="cov-item"><span class="cx">✗</span> Your vehicle damage</div>
+          <div class="cov-item"><span class="cx">✗</span> Theft or natural disasters</div>
+        </div>
+        <div class="price-row"><div class="price-lbl">Avg annual premium</div><div class="price-val">$500 – $900</div></div>
+      </div>
+      <div class="ins-card rec">
+        <span class="rec-tag">⭐ Most popular</span>
+        <div class="ins-icon">🟢</div>
+        <div class="ins-name">Full Coverage</div>
+        <div class="ins-desc">Liability + collision + comprehensive. Protects your car in almost any situation.</div>
+        <div class="cov-list">
+          <div class="cov-item"><span class="ck">✓</span> All liability coverage</div>
+          <div class="cov-item"><span class="ck">✓</span> Collision (your car in a crash)</div>
+          <div class="cov-item"><span class="ck">✓</span> Comprehensive (theft, weather)</div>
+          <div class="cov-item"><span class="ck">✓</span> Uninsured motorist</div>
+        </div>
+        <div class="price-row"><div class="price-lbl">Avg annual premium</div><div class="price-val">$1,400 – $2,200</div></div>
+      </div>
+      <div class="ins-card">
+        <div class="ins-icon">🟡</div>
+        <div class="ins-name">Liability + Comprehensive</div>
+        <div class="ins-desc">A middle ground. Covers theft and weather damage but not collision.</div>
+        <div class="cov-list">
+          <div class="cov-item"><span class="ck">✓</span> Liability coverage</div>
+          <div class="cov-item"><span class="ck">✓</span> Theft, fire, natural events</div>
+          <div class="cov-item"><span class="cx">✗</span> Crash damage to your car</div>
+          <div class="cov-item"><span class="cx">✗</span> Medical payments</div>
+        </div>
+        <div class="price-row"><div class="price-lbl">Avg annual premium</div><div class="price-val">$800 – $1,300</div></div>
+      </div>
+    </div>
+    <div class="compare-wrap">
+      <table>
+        <thead><tr><th>Coverage</th><th>Liability</th><th>Liability+Comp</th><th>Full Coverage</th></tr></thead>
+        <tbody>
+          <tr><td>Others' injuries & property</td><td class="cy">✓</td><td class="cy">✓</td><td class="cy">✓</td></tr>
+          <tr><td>Theft / fire / weather</td><td class="cn">✗</td><td class="cy">✓</td><td class="cy">✓</td></tr>
+          <tr><td>Crash damage (your car)</td><td class="cn">✗</td><td class="cn">✗</td><td class="cy">✓</td></tr>
+          <tr><td>Uninsured motorist</td><td class="cn">✗</td><td class="cp">Optional</td><td class="cy">✓</td></tr>
+          <tr><td>Required by lenders?</td><td class="cn">No</td><td class="cn">No</td><td class="cy">Yes</td></tr>
+          <tr><td>Legally required?</td><td style="color:var(--accent);font-weight:600">Yes (most states)</td><td class="cn">No</td><td class="cn">No</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="tab-home" class="tab-content">
+    <div class="ins-grid">
+      <div class="ins-card rec">
+        <span class="rec-tag">⭐ Standard</span>
+        <div class="ins-icon">🏠</div>
+        <div class="ins-name">HO-3 Policy</div>
+        <div class="ins-desc">The most common homeowner's policy. Covers your dwelling on an "open perils" basis and personal property on named perils.</div>
+        <div class="cov-list">
+          <div class="cov-item"><span class="ck">✓</span> Dwelling (fire, wind, hail)</div>
+          <div class="cov-item"><span class="ck">✓</span> Personal belongings</div>
+          <div class="cov-item"><span class="ck">✓</span> Liability protection</div>
+          <div class="cov-item"><span class="cx">✗</span> Flood (add-on required)</div>
+        </div>
+        <div class="price-row"><div class="price-lbl">Avg annual premium</div><div class="price-val">$1,200 – $2,000</div></div>
+      </div>
+      <div class="ins-card">
+        <div class="ins-icon">🌊</div>
+        <div class="ins-name">Flood Insurance</div>
+        <div class="ins-desc">Not covered by standard policies. Required in FEMA flood zones if you have a federally-backed mortgage.</div>
+        <div class="cov-list">
+          <div class="cov-item"><span class="ck">✓</span> Building coverage</div>
+          <div class="cov-item"><span class="ck">✓</span> Contents coverage</div>
+          <div class="cov-item"><span class="cx">✗</span> Included in HO-3</div>
+          <div class="cov-item"><span class="cx">✗</span> Landscaping / vehicles</div>
+        </div>
+        <div class="price-row"><div class="price-lbl">Avg annual premium</div><div class="price-val">$700 – $1,500</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-health" class="tab-content">
+    <div class="ins-grid">
+      <div class="ins-card">
+        <div class="ins-icon">💊</div>
+        <div class="ins-name">HMO Plan</div>
+        <div class="ins-desc">Lower premiums, but you must use in-network doctors and get referrals to see specialists.</div>
+        <div class="cov-list">
+          <div class="cov-item"><span class="ck">✓</span> Lower monthly premiums</div>
+          <div class="cov-item"><span class="ck">✓</span> Lower out-of-pocket costs</div>
+          <div class="cov-item"><span class="cx">✗</span> Out-of-network not covered</div>
+          <div class="cov-item"><span class="cx">✗</span> PCP referrals required</div>
+        </div>
+        <div class="price-row"><div class="price-lbl">Avg monthly premium</div><div class="price-val">$400 – $600</div></div>
+      </div>
+      <div class="ins-card rec">
+        <span class="rec-tag">⭐ Flexible</span>
+        <div class="ins-icon">❤️</div>
+        <div class="ins-name">PPO Plan</div>
+        <div class="ins-desc">More flexibility — see any doctor in or out of network without a referral. Higher premiums but broader access.</div>
+        <div class="cov-list">
+          <div class="cov-item"><span class="ck">✓</span> Any doctor, no referral</div>
+          <div class="cov-item"><span class="ck">✓</span> Out-of-network covered (partial)</div>
+          <div class="cov-item"><span class="cx">✗</span> Higher monthly premiums</div>
+          <div class="cov-item"><span class="cx">✗</span> Higher deductibles</div>
+        </div>
+        <div class="price-row"><div class="price-lbl">Avg monthly premium</div><div class="price-val">$550 – $900</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-banner"><span class="ad-lbl">AD</span><div style="color:var(--muted);font-size:0.82rem;">Advertisement — 728×90</div></div>
+
+  <div class="faq-section">
+    <h2>Insurance FAQs</h2>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do I need full coverage if my car is paid off?</span><span class="faq-toggle">+</span></div><div class="faq-a">Not legally, but it depends on your car's value. A rough rule: if your annual premium for collision and comprehensive exceeds 10% of your car's value, consider dropping to liability only. For cars worth under $5,000, full coverage often isn't worth it.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What factors affect my car insurance rate?</span><span class="faq-toggle">+</span></div><div class="faq-a">Age, driving record, credit score (in most states), vehicle make/model, annual mileage, location, and coverage level all affect your premium. Young drivers and those with accidents or tickets pay significantly more.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Is flood insurance really necessary?</span><span class="faq-toggle">+</span></div><div class="faq-a">If you're in a FEMA high-risk flood zone with a federally-backed mortgage, it's legally required. Even outside high-risk zones, 20% of flood claims come from lower-risk areas. Check FEMA's flood map and talk to your insurer if you're unsure.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How can I lower my insurance premiums?</span><span class="faq-toggle">+</span></div><div class="faq-a">Bundle auto and home with the same insurer (saves 10–25%), increase your deductible, maintain a clean driving record, improve your credit score, and shop quotes every 1–2 years. Loyalty doesn't always pay — switching often saves more.</div></div>
+  </div>
+</div>
+<script>
+function switchTab(btn,id){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
+}
+function toggleFaq(el){el.parentElement.classList.toggle('open');}
+function toggleMenu(){const m=document.getElementById('mobileMenu');m.classList.toggle('open');const s=document.getElementById('hamburger').querySelectorAll('span');if(m.classList.contains('open')){s[0].style.transform='rotate(45deg) translate(5px,5px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(5px,-5px)';}else{s[0].style.transform='';s[1].style.opacity='';s[2].style.transform='';}}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');const s=document.getElementById('hamburger').querySelectorAll('span');s[0].style.transform='';s[1].style.opacity='';s[2].style.transform='';}
+</script>
+</body>
+</html>
