@@ -1,130 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="About KrediGuide.com — free financial calculators and plain-English legal guides for everyday Americans.">
-<title>About Us — KrediGuide.com</title>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3203893028519911" crossorigin="anonymous"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#0a0f1e;--bg2:#0f1628;--card:#141d35;--card2:#1a2540;--border:rgba(255,255,255,0.07);--accent:#4f8cff;--accent2:#a78bfa;--accent3:#34d399;--text:#f0f4ff;--muted:#7a88a8;--radius:16px;}
-*{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 20% 10%,rgba(79,140,255,0.10) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(167,139,250,0.08) 0%,transparent 55%);pointer-events:none;z-index:0;}
-nav{position:sticky;top:0;z-index:100;background:rgba(10,15,30,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px;}
-.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px;flex-shrink:0;}
-.logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;}
-.nav-links{display:flex;gap:1.4rem;list-style:none;}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;transition:color .2s;}
-.nav-links a:hover{color:var(--text);}
-.nav-cta{background:var(--accent);color:#fff;padding:8px 18px;border-radius:8px;font-size:0.83rem;font-weight:500;text-decoration:none;}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;flex-shrink:0;}
-.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s;}
-.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(10,15,30,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:20px 5%;z-index:99;flex-direction:column;gap:4px;}
-.mobile-menu.open{display:flex;}
-.mobile-menu a{color:var(--muted);text-decoration:none;font-size:1rem;padding:12px 0;border-bottom:1px solid var(--border);}
-.mobile-menu a:last-child{border-bottom:none;color:var(--accent);font-weight:500;}
-.content{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:60px 5% 80px;}
-.breadcrumb{font-size:0.78rem;color:var(--muted);margin-bottom:20px;}
-.breadcrumb a{color:var(--muted);text-decoration:none;}
-.breadcrumb a:hover{color:var(--accent);}
-.hero{text-align:center;margin-bottom:60px;}
-.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3rem);font-weight:800;margin-bottom:16px;background:linear-gradient(135deg,#f0f4ff 0%,#a78bfa 50%,#4f8cff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero p{font-size:1rem;color:var(--muted);max-width:520px;margin:0 auto;line-height:1.8;}
-.mission{background:linear-gradient(135deg,rgba(79,140,255,0.08),rgba(167,139,250,0.08));border:1px solid rgba(79,140,255,0.2);border-radius:var(--radius);padding:32px;margin-bottom:24px;text-align:center;}
-.mission h2{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;margin-bottom:12px;}
-.mission p{color:var(--muted);line-height:1.8;font-size:0.95rem;}
-.values{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;}
-.value-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;}
-.value-icon{font-size:1.8rem;margin-bottom:12px;}
-.value-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:8px;}
-.value-desc{font-size:0.85rem;color:var(--muted);line-height:1.7;}
-.section{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:20px;}
-.section h2{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:14px;}
-.section p{font-size:0.9rem;color:var(--muted);line-height:1.8;margin-bottom:12px;}
-.section p:last-child{margin-bottom:0;}
-.section a{color:var(--accent);}
-.disclaimer{background:var(--card2);border-left:3px solid rgba(251,146,60,0.5);border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:20px;}
-.disclaimer p{font-size:0.85rem;color:var(--muted);line-height:1.7;}
-.disclaimer strong{color:var(--text);}
-.cta-box{background:linear-gradient(135deg,rgba(79,140,255,0.1),rgba(167,139,250,0.1));border:1px solid rgba(79,140,255,0.2);border-radius:var(--radius);padding:32px;text-align:center;margin-top:32px;}
-.cta-box h2{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:10px;}
-.cta-box p{color:var(--muted);font-size:0.9rem;margin-bottom:20px;}
-.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-.btn-p{background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-size:0.9rem;font-weight:500;}
-.btn-s{background:var(--card2);color:var(--text);padding:12px 24px;border-radius:8px;text-decoration:none;font-size:0.9rem;border:1px solid var(--border);}
-footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:32px 5%;text-align:center;}
-footer p{font-size:0.78rem;color:var(--muted);}
-footer a{color:var(--muted);text-decoration:none;margin:0 12px;}
-footer a:hover{color:var(--text);}
-@media(max-width:768px){.nav-links,.nav-cta{display:none;}.hamburger{display:flex;}.values{grid-column:1fr;}}
-</style>
-</head>
-<body>
-<nav>
-  <a href="index.html" class="logo"><span class="logo-dot"></span>KrediGuide<span style="color:var(--accent)">.com</span></a>
-  <ul class="nav-links">
-    <li><a href="mortgage.html">Mortgage</a></li>
-    <li><a href="auto-loan.html">Auto Loan</a></li>
-    <li><a href="legal-guide.html">Legal Guides</a></li>
-    <li><a href="insurance-guide.html">Insurance</a></li>
-  </ul>
-  <a href="mortgage.html" class="nav-cta">Calculators</a>
-  <div class="hamburger" onclick="toggleMenu()" id="hamburger"><span></span><span></span><span></span></div>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="mortgage.html" onclick="closeMenu()">🏠 Mortgage Calculator</a>
-  <a href="legal-guide.html" onclick="closeMenu()">⚖️ Legal Guides</a>
-  <a href="insurance-guide.html" onclick="closeMenu()">🛡️ Insurance</a>
-  <a href="mortgage.html" onclick="closeMenu()">→ Calculators</a>
-</div>
-<div class="content">
-  <div class="breadcrumb"><a href="index.html">Home</a> / About Us</div>
-  <div class="hero">
-    <h1>About KrediGuide.com</h1>
-    <p>We build free, easy-to-use financial tools and plain-English legal guides so everyday Americans can make smarter decisions — without paying for advice they shouldn't need to pay for.</p>
-  </div>
-  <div class="mission">
-    <h2>Our Mission</h2>
-    <p>Financial and legal information shouldn't be locked behind paywalls or buried in jargon. KrediGuide.com exists to give everyone access to the same quality of information — whether you're buying your first home, dealing with a car accident, or trying to understand your insurance policy.</p>
-  </div>
-  <div class="values">
-    <div class="value-card"><div class="value-icon">🆓</div><div class="value-title">Always Free</div><div class="value-desc">Every tool and guide on this site is completely free. No signup, no paywall, no hidden fees — ever.</div></div>
-    <div class="value-card"><div class="value-icon">✅</div><div class="value-title">Accurate & Updated</div><div class="value-desc">We update our content regularly to reflect current interest rates, laws, and market conditions.</div></div>
-    <div class="value-card"><div class="value-icon">📖</div><div class="value-title">Plain English</div><div class="value-desc">No jargon. We explain complex financial and legal topics in language anyone can understand.</div></div>
-    <div class="value-card"><div class="value-icon">🔒</div><div class="value-title">Privacy First</div><div class="value-desc">Calculator inputs stay in your browser. We don't store or sell your personal financial data.</div></div>
-  </div>
-  <div class="section">
-    <h2>What We Offer</h2>
-    <p><strong style="color:var(--text)">Financial Calculators</strong> — Mortgage payment calculator, auto loan estimator, amortization tables, and more.</p>
-    <p><strong style="color:var(--text)">Legal Guides</strong> — Plain-English explanations of your rights after a car accident, wrongful termination, slip and fall, and more.</p>
-    <p><strong style="color:var(--text)">Insurance Guides</strong> — Clear comparisons of auto, home, and health insurance options.</p>
-  </div>
-  <div class="disclaimer"><p><strong>Important Disclaimer:</strong> KrediGuide.com provides general informational content only. Nothing on this site constitutes legal, financial, or professional advice. Always consult a licensed professional for advice specific to your situation.</p></div>
-  <div class="section">
-    <h2>Contact Us</h2>
-    <p>Have a question or suggestion? Email us at <a href="mailto:info@krediguide.com">info@krediguide.com</a> or visit our <a href="contact.html">contact page</a>.</p>
-  </div>
-  <div class="cta-box">
-    <h2>Ready to get started?</h2>
-    <p>Use our free tools to make smarter financial decisions today.</p>
-    <div class="cta-btns">
-      <a href="mortgage.html" class="btn-p">Mortgage Calculator</a>
-      <a href="legal-guide.html" class="btn-s">Legal Guides</a>
-    </div>
-  </div>
-</div>
-<footer>
-  <p><a href="index.html">Home</a><a href="about.html">About</a><a href="privacy-policy.html">Privacy Policy</a><a href="contact.html">Contact</a></p>
-  <p style="margin-top:12px;">© 2026 KrediGuide.com · All rights reserved.</p>
-</footer>
-<script>
-function toggleMenu(){const m=document.getElementById('mobileMenu');m.classList.toggle('open');const s=document.getElementById('hamburger').querySelectorAll('span');if(m.classList.contains('open')){s[0].style.transform='rotate(45deg) translate(5px,5px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(5px,-5px)';}else{s[0].style.transform='';s[1].style.opacity='';s[2].style.transform='';}}
-function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');const s=document.getElementById('hamburger').querySelectorAll('span');s[0].style.transform='';s[1].style.opacity='';s[2].style.transform='';}
-</script>
-</body>
-</html>
+name: Bulk Article Generator
+
+on:
+  workflow_dispatch:
+
+jobs:
+  bulk-generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate all articles
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node generate-bulk.js
+
+      - name: Commit and push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "KrediGuide Bot"
+          git add -A
+          git diff --staged --quiet || git commit -m "Bulk articles: $(date '+%Y-%m-%d')"
+          git push
